@@ -1,0 +1,105 @@
+<div class="mainSection">
+    <div class="activityDetailsLeft">
+        <div class="cardImage">
+          <div
+            *ngIf="activityInfo && activityInfo?.sessionImage?.original"
+            class="img-wrap"
+          >
+            <img src="{{ activityInfo.sessionImage.original }}" alt="" />
+          </div>
+          <div
+            *ngIf="!(activityInfo && activityInfo.sessionImage.original)"
+            class="img-wrap"
+          >
+            <img src="../../../../assets/images/icon.jpg" alt="" />
+          </div>
+        
+    
+        <div class="ageLocation">
+          <div class="age">
+              <p><i class="fa fa-child" aria-hidden="true"></i> {{activityInfo && activityInfo.activityId.ageRange.from}} - {{activityInfo && activityInfo.activityId.ageRange.to}} yrs</p>
+          </div>
+          <div class="age location">
+              <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{activityInfo && activityInfo.siteLocationId.name}}</p>
+          </div>
+          
+    
+        </div>
+        <div class="age dateRange">
+          <div class="icon-group"><p><i class="fa fa-calendar" aria-hidden="true"></i> {{activityInfo && activityInfo.localDateTimestamp.from  | date:'MMM dd'}}  - {{activityInfo && activityInfo.localDateTimestamp.to  | date:'MMMM dd, y'}}</p></div>
+        </div>
+        <div class="age">
+          <app-week-days></app-week-days>
+        </div>
+    
+        <div class="age ratings">
+          <h5>Ratings</h5>
+          ⭐⭐⭐⭐⭐(5 Star based on 47 reviews)
+        </div>
+    
+        <div class="age bookings">
+          <h5>Bookings Available</h5>
+          <p> $0</p>
+        </div>
+      </div>
+    
+    
+        <div class="booking-btn">
+          <button>Book Now</button>
+        </div>
+    
+      </div>
+      <div class="rightSection ">
+        <div class="heading">
+            <h5>Who will be attending? <span>*</span></h5>
+        </div>
+        <div class="participantsList">
+            <div class="list" *ngFor="let data of allPaticipantsDetails ">
+                <div class="icon">{{data.firstName.slice(0,1)}}{{data.lastName.slice(0,1)}}</div>
+               <div class="nameSection">
+                <p>{{data.firstName}}</p>
+                <p>{{data.lastName}}</p>
+               </div>
+               <input type="checkbox">
+            </div>
+            
+
+           
+      </div>
+      <div class="missingParticipants" >
+        <small>Missing Participants(s)?</small>
+        <a class="add" (click)="isParticipantsMissing = !isParticipantsMissing">+Add</a>
+      </div>
+      <div class="addMissingParticipants" *ngIf="isParticipantsMissing">
+        <form class="addParticipantForm" [formGroup]="addParticipants" (ngSubmit)="onSubmit()" >
+
+          
+        <div class="firstname">
+          <label for="fname"> First Name</label>
+          <input type="text" id="firstName" formControlName="firstName">
+        </div>
+        <div class="lastname">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" formControlName="lastName">
+        </div>
+        <div class="gender">
+          <label for="gender">Gender</label>
+          <input type="text" id="gender" formControlName="gender">
+        </div>
+        <div class="dob">
+          <label for="dob">DOB</label>
+          <input type="date" id="dob" formControlName="dob">
+        </div>
+      <div class="date">
+        <label for="date">Grade</label>
+        <input type="text" id="date" formControlName="grade">
+      </div>
+      <div class="addParticipantBtn">
+        <button type="submit">Add</button>
+
+      </div>
+          
+        </form>
+
+  </div>
+</div>

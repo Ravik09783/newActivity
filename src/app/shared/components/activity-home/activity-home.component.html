@@ -1,0 +1,87 @@
+<!-- <button (click)="dateChange()">date</button> -->
+
+
+<div class="container cardA"  >
+  <!-- <div *ngFor="let data of activityDetials?.data?.sessions "></div> -->
+  <div class="mainActivity" *ngFor="let datas of activityDetials?.data?.sessions " >
+    <!-- First Column -->
+    <div class="mainActivityCard" *ngFor="let data1 of datas.sessions" >
+      <div class="mainActivityImageContent">
+        
+        <div class="cardImage">
+                <div *ngIf="data1.sessionImage.original" class="img-wrap">
+                    <img src="{{ data1.sessionImage.original }}" alt="" />
+                </div>
+                <div *ngIf="!data1.sessionImage.original" class="img-wrap">
+                    <img src="../../../../assets/images/icon.jpg" alt="">
+                </div>
+        </div>
+        <div>
+            <div>
+                <h4>{{data1.name}}</h4>
+                <!-- {{data1.skillLevelOption}} -->
+
+                <div class="icon-group" *ngIf="data1.skillLevelOption" ><p><i class="fa fa-child" aria-hidden="true"></i> Grade(s): {{data1.gradeRange.from }}-{{data1.gradeRange.to}} yrs</p></div>
+
+             
+                <div class="icon-group" *ngIf="!data1.skillLevelOption" ><p><i class="fa fa-child" aria-hidden="true"></i> Age: {{data1.ageRange.from }}-{{data1.ageRange.to}} yrs</p></div>
+                <!-- <div class="icon-group"><p><i class="fa fa-child" aria-hidden="true"></i> Age: {{data1.ageRange.from }}-{{data1.ageRange.to}} yrs</p></div> -->
+                <div class="icon-group"><p><i class="fa fa-map-marker" aria-hidden="true"></i> {{datas && datas.name}}</p></div>
+    
+            </div>
+            <div>
+                <button mat-button (click)="ActivityInfo(data1._id)">More Info</button>
+            </div>
+        </div>
+    
+
+      </div>
+      <!-- Second Column -->
+      <div class="cardA-02">
+        <app-week-days></app-week-days>
+      <div>
+        <div class="icon-group"><p><i class="fa fa-calendar" aria-hidden="true"></i> {{data1.dateTimestamp.from | date:'MMM dd'}}  - {{data1.dateTimestamp.to | date:'MMMM dd, y'}}</p></div>
+      </div>
+
+      </div>
+      <!-- third Column -->
+      <div class="cardA-03">
+        <p>${{data1.frequencyPrice}}/Week</p>
+        <button (click)="bookNowActivity(data1._id)" >Book Now</button>
+        <div *ngIf="data1.availableSpots">
+            <small [ngClass]="{'lessSeats': data1.availableSpots < 10 }">{{data1.availableSpots}} Available Seats</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Gift Card -->
+<div class="container cardB">
+<div class="giftCardMain" *ngFor="let data of giftCardsData.data">
+  <div class="giftCardImage">
+    <img src={{data.images[0].original}} alt="">
+  </div>
+  <div class="giftCardHeading">
+    <h5 class="giftHeading">{{data.title}}</h5>
+    <p class="giftDescription">{{data.description}}</p>
+  </div>
+  <div class="giftCardButton">
+    <div class="buyNowBtn">
+      <p>$1-$2000</p>
+      <button>Purchase</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<button (click)="filterActivities('sememster')">Sememster</button>
+
+
+
+
+
+<!-- <app-login-register></app-login-register> -->

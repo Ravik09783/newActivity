@@ -1,0 +1,85 @@
+.mainSection {
+    display: grid;
+    grid-template-columns: 1fr 1.65fr;
+    grid-gap: 35px;
+}
+.activityDetailsLeft img {
+    width: 100%;
+}
+.participantsList {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: space-between;
+}
+.participantsList>div {
+    background: #fff;
+    display: grid;
+    grid-template-columns: 25% 60% 10%;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    justify-content: space-between;
+    padding: 4px;
+    margin: 5px;
+}
+.nameSection>p {margin: 0;}
+.icon {
+    background: #e6af0b;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+}
+.missingParticipants a{
+    cursor: pointer;
+}
+.rightSection {
+    height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.missingParticipants{
+    border:none!important;
+}
+.missingParticipants {
+    text-align: right;
+    padding: 10px 0px;
+}
+.missingParticipants .add {
+    padding-left: 8px;
+    color: #e6af0b;
+}
+.addParticipantForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.addParticipantForm label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.addParticipantForm input {
+    width: 100%;
+    padding: 5px;
+}
+
+.addParticipantBtn {
+    justify-self: center;
+    align-self: end;
+}
+
+.addParticipantBtn button {
+    background: blue;
+    border: none;
+    padding: 5px 15px;
+    color: #fff;
+    border-radius: 4px;
+}

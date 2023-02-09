@@ -1,0 +1,93 @@
+<div class="signInMain">
+  <div class="socialLogin">
+    <img src="../../../../assets/images/icon-big.png" alt="" />
+    <p class="yourP">
+      <small
+        >Your account is managed and powered by <span>Field Day</span></small
+      >
+    </p>
+
+    <div class="socialButton">
+      <button class="facebook">Login With Facebook</button>
+      <button class="google">Login With Google</button>
+    </div>
+    <div class="signUpText">
+      <p>Don't have an account? <a mat-dialog-close (click)="register()">Sign Up Now!</a></p>
+    </div>
+  </div>
+
+  <div class="manualLogin">
+    <div class="manaulLogin">
+      <h4>Sign in Manually</h4>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="loginForm">
+      <div class="inputField">
+        <div class="username d-flex">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <input type="text" class="emailId" formControlName="username" />
+        </div>
+        <div class="password">
+          <input type="password" class="emailId" formControlName="password" autocomplete="password" />
+        </div>
+      </div>
+      <div class="captcha"></div>
+      <div class="remember-forget d-flex">
+        <div>
+          <input type="checkbox" value="Bike" id="remember" class="mr-2" />
+          <label for="remember">Remember Me</label>
+        </div>
+        <div class="forgetPassword">
+          <p>Forget Password</p>
+        </div>
+      </div>
+    </div>
+    <div class="loginBtn">
+      <button type="submit">Login</button>
+    </div>
+  </form>
+
+  </div>
+</div>
+
+
+
+<!-- <div class="row">
+  <div class="col-md-6">
+      <div class="_social_login_buttons">    
+          <div class="_facebook_button">    
+              <button (click)="socialSignIn('facebook')" class="loginBtn loginBtn--facebook">    
+                  <mat-icon>home</mat-icon>Login with Facebook    
+              </button>    
+
+          </div>    
+          <div class="_google_button">    
+              <button (click)="socialSignIn('google')" class="loginBtn loginBtn--google">    
+                  <mat-icon>home</mat-icon>Login with Google    
+              </button>    
+          </div>    
+      </div> 
+  </div>
+  <div class="col-md-6 activityhub_login">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <h2 class="modal_title">Sign in Manually</h2>
+          <mat-error *ngIf="loginInvalid">
+              {{loginmessage}}
+          </mat-error>
+          <mat-form-field class="full-width-input">
+            <input matInput placeholder="Email" formControlName="username" required>
+            <mat-error>
+              Please provide a valid email address
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width-input">
+            <input matInput type="password" placeholder="Password" formControlName="password" required>
+            <mat-error>
+              Please provide a valid password
+            </mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary">Login</button>
+        </form>
+  </div>
+</div> -->
